@@ -4,7 +4,7 @@ minimal_mistakes_skin    : "default" # 태마 색 설정 "air", "aqua", "contras
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "새" # Meta 태그에 들어가는 영역 , masthead_title등이 없으면 기본값으로 나온다.
+title                    : "Kyle의 삽질 Log" # Meta 태그에 들어가는 영역 , masthead_title등이 없으면 기본값으로 나온다.
 title_separator          : "&#124;" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
 subtitle                 : "Version 1.0" # 타이틀 아래에 나올 작은 글씨 
 name                     : "한준수" # 맨 하단 이름 찍히는 영역
@@ -106,9 +106,9 @@ author:
   location         : "Republic of Korea"
   email            : "kljopuu@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:kljopuu@gmail.com
+    # - label: "Email"
+    #   icon: "fas fa-fw fa-envelope-square"
+    #   url: mailto:kljopuu@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "http://honbabzone.com/"
