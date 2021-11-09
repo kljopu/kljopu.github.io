@@ -1,23 +1,14 @@
 ---
 title: "Notion에서 Github으로 블로그 이전하기"
 layout: single
-author_profile: true
-read_time: true
-comments: true
-share: true
-related: true
 categories:
   - Blog
 tags:
   - Blog
-description: 블로그 이전기
-article_tag1: 시작하며
-article_section: Blog
-meta_keywords: 블로그 이전기
 last_modified_at: '2021-11-39 21:42:14 +08000'
 toc: true
 toc_sticky: true
-toc_label: 목차
+toc_label: 시작
 ---
 개발자가 된 이후 Notion을 이용한 기록을 작성하면서 고민이 하나 있었습니다.
 
