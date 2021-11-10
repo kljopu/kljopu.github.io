@@ -18,7 +18,7 @@ toc_label: Table of Contents
 
 postgresql에는 골든 룰이 하나 있습니다.
 
-테이블에컬럼을 추가할 때는 ***절대 default 값을 설정하지 마라.***
+테이블에컬럼을 추가할 때는 ***절대 <span style="color:red">default</span> 값을 설정하지 마라.***
 
 컬럼을 추가하는 행위 자체가 락을 유발하는 매우 공격적인 행위입니다. 더군다나 default 값을 같이 설정해 버리면 Postgresql은 전체 테이블에 write 작업을 수행하게 됩니다.
 
@@ -60,13 +60,12 @@ Postgresql의 모든 Lock은 queue를 가지고 있습니다.
 하지만 이때 Transaction C는 Transaction A의 lock level과 충돌 나지 않더라도 대기해야 된다는 점이 간단한 쿼리임에도 불구하고 실행의 시간을 늘리는 원인이 됩니다.
 
 ```sql
-Postgresql의 모든 Lock은 queue를 가지고 있다.
+-- Never Do This
+ALTER TABLE items ADD COLUMN last_update timestamptz;
 
-만약 Transaction A가 Confilicting lock level로 점유하고 있는 lock에 Transaction B가 접근하고자 하면 Transaction B는 lock queue에서 Transaction A가 Commit 되거나 Rollback을 통해 점유가 풀리기까지 대기한다.
-
-이후 또 다른 Transaction C가 lock을 얻어야 하는 경우 이 또한 queue에서 대기하게 된다.
-
-하지만 이때 Transaction C는 Transaction A의 lock level과 충돌 나지 않더라도 대기해야 된다는 점이 간단한 쿼리임에도 불구하고 실행의 시간을 늘리는 원인이 된다.
+-- Do Instead
+SET lock_timeout TO '2s'
+ALTER TABLE items ADD COLUMN last_update timestamptz;
 ```
 
 따라서 위와 같이 lock_timeout을 걸어 줌으로서 lock 점유 시간을 강제하고 대기 큐를 실행 할 수 있도록 해주는 것이 좋다.
