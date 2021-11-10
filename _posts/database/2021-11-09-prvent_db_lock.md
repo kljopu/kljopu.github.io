@@ -11,3 +11,8 @@ toc: true
 toc_sticky: true
 toc_label: Table of Contents
 ---
+
+
+:bulb:
+본 글은 [When Postgres blocks: 7 tips for dealing with locks by Marco Slot](https://www.citusdata.com/blog/2018/02/22/seven-tips-for-dealing-with-postgres-locks/)  article을 보고 정리한 글입니다.
+{: .notice--info}
