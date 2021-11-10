@@ -69,6 +69,8 @@ autovacuum은 주어진 전략을 바탕으로 실행됩니다. 이는 `autovacu
 <br>
 
 ### Autovacuum 환경변수
+
+
 |변수명|설명|
 |------|---|
 |autovacuum|autovacuum 기능을 활성화 할 것인지 결정|
@@ -83,6 +85,8 @@ autovacuum은 주어진 전략을 바탕으로 실행됩니다. 이는 `autovacu
 |autovacuum_vacuum_scale_factor|autovacuum 작업 대상 선정 기준이 되는 테이블 변화량, 백분율|
 |autovacuum_vacuum_threshold|Minimum number of tuple updates or deletes prior to vacuum.|
 |autovacuum_work_mem|Sets the maximum memory to be used by each autovacuum worker process.|
+
+
 <br>
 
 이를 바탕으로 autovacuum 작업 프로레스를 설명하자면,
@@ -188,11 +192,12 @@ ALTER TABLE t_share_vehicle SET (autovacuum_vacuum_threshold = 100000);
 #### **2.2. autovacuum_vacuum_cost_limit 을 증가시키기**
 <br>
 
-💡 "자동 VACUUM 명령에 사용되는 비용 제한 값을 지정한다. -1을 지정하면(기본값) 일반 [vacuum_cost_limit](https://postgresql.kr/docs/9.5/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT) 값이 사용된다. 실행 중인 autovacuum workers가 하나 이상 있을 경우 각 worker 제한의 합계가 이 변수의 제한값을 초과하지 않도록 값이 비례 분배된다. 이 매개변수는 postgresql.conf 파일 또는 서버 커맨드 라인에서만 설정 가능하다. 이 설 정은 저장소 매개변수를 변경함으로써 개별 테이블에 오버라이드할 수 있다. " - PostgreSQL 공식 문서
+💡 "자동 VACUUM 명령에 사용되는 비용 제한 값을 지정한다. -1을 지정하면(기본값)일반 [vacuum_cost_limit](https://postgresql.kr/docs/9.5/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT) 값이 사용된다. 실행 중인 autovacuum workers가 하나 이상 있을 경우 각 worker 제한의 합계가 이 변수의 제한값을 초과하지 않도록 값이 비례 분배된다. 이 매개변수는 postgresql.conf 파일 또는 서버 커맨드 라인에서만 설정 가능하다. 이 설 정은 저장소 매개변수를 변경함으로써 개별 테이블에 오버라이드할 수 있다. " \- PostgreSQL 공식 문서
 {: .notice-success}
 
 <br><br>
 
 :bulb:
-본 글은<br> [When Postgres blocks: 7 tips for dealing with locks by Marco Slot](https://www.citusdata.com/blog/2018/02/22/seven-tips-for-dealing-with-postgres-locks/) <br> article을 보고 정리한 글입니다.
+본 글은<br> 
+현재 진행 중인 글입니다.
 {: .notice--info}
