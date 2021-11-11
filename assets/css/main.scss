@@ -6,10 +6,15 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 @font-face {
-    font-family: 'RIDIBatang';
-    src: url('/assets/fonts/RIDIBatang.otf') format('otf');
+    font-family: 'Noto Serif Korean';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
     font-weight: normal;
     font-style: normal;
+}
+
+body {
+    font-family: 'Noto Serif Korean';
 }
