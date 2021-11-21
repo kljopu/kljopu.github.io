@@ -1,4 +1,4 @@
-<!-- ---
+---
 title: "GeoJSON 이란?"
 categories:
   - etc
@@ -9,17 +9,15 @@ last_modified_at: "2021-11-18 22:42:14 +0800"
 toc: true
 toc_sticky: true
 toc_label: Table of Contents
---- -->
+---
 
 # | GeoJSON 이란?
 
 > **GeoJSON**은 위치정보를 갖는 점을 기반으로 체계적으로 지형을 표현하기 위해 설계된 개방형 공개 표준 형식이다.
-> 
 
 [위키백과 링크](https://ko.wikipedia.org/wiki/GeoJSON)
 
 geometry data 들로 이루어진 object를 GeoJSON 형태로 return 해주는 library.
-
 
 💡 Geojson에 대한 정의는 [해당 링크](https://tools.ietf.org/html/rfc7946)에서 확인할 수 있습니다.
 {: .notice--info}
@@ -100,8 +98,8 @@ array형태와 single obejct 모두 사용 가능합니다.
 
 ```json
 {
-    "type": "Point",
-    "coordinates": [30, 10]
+  "type": "Point",
+  "coordinates": [30, 10]
 }
 ```
 
@@ -113,17 +111,15 @@ type은 도형의 형태를, coordinates는 위치값을 나타냅니다. coordi
 
 지도 위에서 **선**의 정보를 나타냅니다.
 
-
 |---|--|
-|![geojson_1](/assets/images/posts/geojosn_1.png)| 
-```json { "type": "LineString","coordinates": [[30, 10], [10, 30], [40, 40]]}``` |
+|![geojson_1](/assets/images/posts/geojosn_1.png)|
+`json { "type": "LineString","coordinates": [[30, 10], [10, 30], [40, 40]]}` |
 
 <!-- <div class=pull-right>
 ![geojson_1](/assets/images/posts/geojosn_1.png)
 </div> -->
 <img style="float:left;" src='{{ "/assets/images/posts/geojson_1.png" | relative_url }}' alt='relative'>
 zzz
-
 
 coordinates를 보시면 아시겠지만 Point는 1차원이였지만 LineString은 2차원으로 한단계 높아진 것을 알 수 있습니다.
 
@@ -137,13 +133,16 @@ coordinates의 첫번째 항목은 LineString이 시작하는 점의 좌표를 �
 
 ```json
 {
-    "type": "Polygon",
-    "coordinates": [
-        [
-					[30, 10], [40, 40], [20, 40], [10, 20], 
-					[30, 10]
-				]  //coordinates[0]
-    ]
+  "type": "Polygon",
+  "coordinates": [
+    [
+      [30, 10],
+      [40, 40],
+      [20, 40],
+      [10, 20],
+      [30, 10]
+    ] //coordinates[0]
+  ]
 }
 ```
 
@@ -155,17 +154,22 @@ Polygon은 coordinates가 3차원이라는 점이 특징입니다. 또한 coordi
 
 ```json
 {
-    "type": "Polygon",
-    "coordinates": [
-        [
-					[35, 10], [45, 45], [15, 40], [10, 20], 
-					[35, 10]
-				],  //coordinates[0]
-        [
-					[20, 30], [35, 35], [30, 20], 
-					[20, 30]
-				]   //coordinates[1]
-    ]
+  "type": "Polygon",
+  "coordinates": [
+    [
+      [35, 10],
+      [45, 45],
+      [15, 40],
+      [10, 20],
+      [35, 10]
+    ], //coordinates[0]
+    [
+      [20, 30],
+      [35, 35],
+      [30, 20],
+      [20, 30]
+    ] //coordinates[1]
+  ]
 }
 ```
 
@@ -183,14 +187,17 @@ Polygon은 coordinates가 3차원이라는 점이 특징입니다. 또한 coordi
 
 ```json
 {
-    "type": "MultiPoint",
-    "coordinates": [
-        [10, 40], [40, 30], [20, 20], [30, 10]
-    ]
+  "type": "MultiPoint",
+  "coordinates": [
+    [10, 40],
+    [40, 30],
+    [20, 20],
+    [30, 10]
+  ]
 }
 ```
 
-눈치 채셨겠지만 **coordinates가 한 차원 높아졌음**을 알 수 있습니다. 
+눈치 채셨겠지만 **coordinates가 한 차원 높아졌음**을 알 수 있습니다.
 
 Multi가 붙은 것들은 기존의 도형보다 한 차원 높아지면 됩니다.
 
@@ -202,11 +209,20 @@ Multi가 붙은 것들은 기존의 도형보다 한 차원 높아지면 됩니�
 
 ```json
 {
-    "type": "MultiLineString",
-    "coordinates": [
-        [[10, 10], [20, 20], [10, 40]],
-        [[40, 40], [30, 30], [40, 20], [30, 10]]
+  "type": "MultiLineString",
+  "coordinates": [
+    [
+      [10, 10],
+      [20, 20],
+      [10, 40]
+    ],
+    [
+      [40, 40],
+      [30, 30],
+      [40, 20],
+      [30, 10]
     ]
+  ]
 }
 ```
 
@@ -218,15 +234,26 @@ Multi가 붙은 것들은 기존의 도형보다 한 차원 높아지면 됩니�
 
 ```json
 {
-    "type": "MultiPolygon",
-    "coordinates": [
-        [
-            [[30, 20], [45, 40], [10, 40], [30, 20]]
-        ],
-        [
-            [[15, 5], [40, 10], [10, 20], [5, 10], [15, 5]]
-        ]
+  "type": "MultiPolygon",
+  "coordinates": [
+    [
+      [
+        [30, 20],
+        [45, 40],
+        [10, 40],
+        [30, 20]
+      ]
+    ],
+    [
+      [
+        [15, 5],
+        [40, 10],
+        [10, 20],
+        [5, 10],
+        [15, 5]
+      ]
     ]
+  ]
 }
 ```
 
@@ -234,16 +261,33 @@ Multi가 붙은 것들은 기존의 도형보다 한 차원 높아지면 됩니�
 
 ```json
 {
-    "type": "MultiPolygon",
-    "coordinates": [
-        [
-            [[40, 40], [20, 45], [45, 30], [40, 40]]
-        ],
-        [
-            [[20, 35], [10, 30], [10, 10], [30, 5], [45, 20], [20, 35]],
-            [[30, 20], [20, 15], [20, 25], [30, 20]]
-        ]
+  "type": "MultiPolygon",
+  "coordinates": [
+    [
+      [
+        [40, 40],
+        [20, 45],
+        [45, 30],
+        [40, 40]
+      ]
+    ],
+    [
+      [
+        [20, 35],
+        [10, 30],
+        [10, 10],
+        [30, 5],
+        [45, 20],
+        [20, 35]
+      ],
+      [
+        [30, 20],
+        [20, 15],
+        [20, 25],
+        [30, 20]
+      ]
     ]
+  ]
 }
 ```
 
@@ -255,14 +299,14 @@ Feature의 형식은 다음과 같습니다.
 
 ```json
 {
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [102.0, 0.5]
-    },
-    "properties": {
-      "prop0": "value0"
-    }
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [102.0, 0.5]
+  },
+  "properties": {
+    "prop0": "value0"
+  }
 }
 ```
 
@@ -352,7 +396,7 @@ type은 **"Point" | "MultiPoint" | "LineString" | "MultiLineString" | "Polygon" 
 
 ```jsx
 var data1 = [{ name: 'Location A', street: 'Market', x: 34, y: -75 }];
- 
+
 var data2 = [{ name: 'Location B', date: '11/23/2012', x: 54, y: -98 }];
 
 GeoJSON.defaults = {Point: ['x', 'y'], include: ['name']};
