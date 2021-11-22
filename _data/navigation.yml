@@ -1,8 +1,9 @@
 # main links
 main:
   - title: "Home"
-    url: "kljopu.github.io"
+    url: "/"
   - title: "Posts"
-    url: /posts/
+    layout: posts
+    permalink: /posts
   - title: "Categories"
     url: /categories/

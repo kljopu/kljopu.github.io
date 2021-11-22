@@ -274,7 +274,6 @@ defaults:
       type: posts
     values:
       layout: single
-      classes: wide # layout FIx
       author_profile: true
       read_time: true
       comments: true
